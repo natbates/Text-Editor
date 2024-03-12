@@ -1,0 +1,3 @@
+Welcome
+
+Hello! Welcome to my super simple text editor I made using Electron with JavaScript!

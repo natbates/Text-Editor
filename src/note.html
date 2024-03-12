@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Note</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="note-styles.css"> <!-- Include your custom CSS file -->
+
+</head>
+<body>
+
+  <div class="content-container">
+    <h1 id = "noteheader" class="my-4">New Note</h1>
+    <textarea id="note-content" contenteditable="true" rows="10" cols="50" placeholder="Enter your note here..."></textarea><br>
+    <p id="word-count"></p>
+    <button onclick="saveNote()" class="btn btn-primary">Save Note</button>
+    <button onclick="downloadNote()" class="btn btn-success">Download Note</button>
+    <button onclick="deleteNote()" class="btn btn-danger">Delete Note</button>
+
+  </div>
+
+  <script src="renderer.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Retrieve the content and filename query parameters from the URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const content = urlParams.get('content');
+      const filename = urlParams.get('filename');
+
+      // Decode the content and filename
+      const decodedContent = content ? decodeURIComponent(content) : '';
+      const decodedFilename = decodeURIComponent(filename);
+
+      // Set the content to the note-content element
+      document.getElementById('note-content').textContent = decodedContent;
+
+      // Use the filename for any required operations
+      console.log('Unique filename:', decodedFilename);     
+      UpdateNoteHeader(); 
+      updateWordCount();
+    });
+
+    function UpdateNoteHeader() {
+      const noteContent = document.getElementById('note-content').value;
+      const firstLine = noteContent.split('\n')[0].trim();
+      const noteHeader = document.getElementById('noteheader');
+      console.log(firstLine);
+      if (firstLine !== "") {
+          noteHeader.textContent = firstLine;
+      } else {
+          noteHeader.textContent = "New Note";
+      }
+    }
+
+    document.getElementById('note-content').addEventListener('input', UpdateNoteHeader);
+
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        saveNote();
+      }
+    });
+
+    document.getElementById('note-content').addEventListener('input', updateWordCount);
+
+    // Autosave functionality
+    setInterval(saveNote, 30000); // Autosave every 30 seconds (30000 milliseconds) 
+
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

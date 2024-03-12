@@ -1,0 +1,42 @@
+{
+  "name": "texteditor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "build": {
+    "appId": "com.example.text-editor",
+    "productName": "Text Ediotr",
+    "directories": {
+      "output": "dist"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "appicons/mac/icon.icns"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "appicons/win/icon.ico"
+    }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "icon": "./appicons/mac/icon.icns",
+  "devDependencies": {
+    "electron": "^29.1.1",
+    "webpack": "^5.90.3",
+    "webpack-cli": "^5.1.4"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {
+        "icon": "./appicons/mac/icon.icns"
+      }
+    }
+  }
+}

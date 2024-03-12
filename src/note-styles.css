@@ -1,0 +1,48 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+  }
+  .content-container {
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+  }
+  #note-content {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    resize: vertical;
+  }
+  .btn {
+    margin-top: 10px;
+  }
+
+
+.note-box {
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    padding: 10px;
+}
+  
+.textarea {
+    width: 100%;
+    min-height: 150px;
+    padding: 5px;
+    outline: none;
+    border: none;
+    overflow-y: auto;
+    font-family: Arial, sans-serif;
+}
+  
+
+#word-count {
+    position: absolute;
+    bottom: 5px; /* Adjust as needed */
+    right: 20px; /* Adjust as needed */
+  }

@@ -1,0 +1,39 @@
+.note-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    text-align: left;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+.note-button:hover {
+    background-color: #e0e0e0;
+}
+
+.container {
+    display: flex;
+    justify-content: flex-end; /* Align items to the right */
+    margin-right: 20px; /* Adjust margin as needed */
+}
+
+  
+.notes-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.card {
+    margin-top: 20px;
+}
+
+.delete-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
